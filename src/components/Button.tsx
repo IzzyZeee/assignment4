@@ -9,7 +9,7 @@ type ButtonProps = {
 
 const baseStyles = 'inline-block px-6 py-3 rounded-2xl transition font-medium shadow-lg';
 const variants = {
-  primary: 'bg-blue-600 hover:bg-blue-500 text-white',
+  primary: 'bg-red-600 hover:bg-red-500 text-white',
   grey: 'bg-gray-700 hover:bg-gray-600 text-white',
 };
 
