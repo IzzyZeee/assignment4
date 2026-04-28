@@ -4,7 +4,16 @@ import type { CreditsResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useParams } from 'react-router-dom';
 
+  type Props = { // fix later
+    kind: string;
+  };
+
 export const CreditsView = () => {
+
+  if (kind === "movie") { // fix later
+
+  }
+
   const { id } = useParams();
   const { data } = useTmdb<CreditsResponse>(`${MOVIE_ENDPOINT}/${id}/credits`, {}, []);
 

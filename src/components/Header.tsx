@@ -10,9 +10,10 @@ export const Header = () => {
               <h1 className="text-2xl font-bold text-white-900">Explorer</h1>
             </div>
           </div>
-        <Link to="/now-playing">Now Playing</Link>
+        <Link to="/movies/now_playing">Movies</Link>
+        <Link to="/trending?interval=day">TV</Link>
         <Link to="/trending?interval=day">Trending</Link>
-        <Link to="/search">Search</Link>
+        <Link to="/search">Genre</Link>
       </nav>
     </header>
   );

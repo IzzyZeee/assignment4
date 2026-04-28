@@ -7,7 +7,7 @@ import {
   // ImagesView,
   MovieCategoriesView,
   MoviesView, 
-  // MovieView, 
+  MovieView, 
   // PersonView, 
   // ReviewsView, 
   // SeasonsView, 
@@ -34,6 +34,12 @@ export const App = () => {
           </Route>
         </Route>
 
+      <Route path="/movie/:id" element={<MovieView />}>
+        {/* <Route path="credits" element={<CreditsView kind="movie" />}/>
+        <Route path="trailers" element={<TrailersView kind="movie" />}/>
+        <Route path="reviews" element={<ReviewsView kind="movie" />}/> */}
+      </Route>
+      
       </Route>
 
       <Route path="*" element={<ErrorView />} />
