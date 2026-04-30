@@ -15,6 +15,11 @@ export type MovieResponse = {
   backdrop_path: string;
   release_date: string;
   vote_average: string;
+  genre_ids?: {
+    genre_results: Array<{
+      id: number;
+    }>;
+  };
   videos?: {
     results: Array<{
       key: string;
@@ -50,4 +55,18 @@ export type SearchResponse = {
   }>;
   total_pages: number;
   total_results: number;
+};
+
+export type PersonResponse = {
+  id: number;
+  name: string;
+  known_for_department: string;
+  profile_path: string;
+
+  results: Array<{
+    id: number;
+    name: string;
+    profile_path: string | null;
+  }>;
+  
 };

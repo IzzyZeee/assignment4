@@ -3,6 +3,7 @@ import { IMAGE_BASE_URL, MOVIE_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from '@/core/
 import type { MovieResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { FaCalendarAlt } from 'react-icons/fa';
+import { MdLocalMovies } from "react-icons/md";
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
 export const MovieView = () => {
@@ -14,6 +15,9 @@ export const MovieView = () => {
     return <p className="text-center text-gray-400">Could not find content.</p>;
   }
 
+  const genreData = data.genre_results.map((genre_results) => ({ // Map will go through every item in the array (each movie)
+    id: genre_results.id
+}));
 
   return (
     <Modal onClose={() => navigate(-1)}>
@@ -31,6 +35,7 @@ export const MovieView = () => {
             <p className="text-gray-400 flex items-center gap-2">
               <FaCalendarAlt />
               {data.release_date}
+              {/* <MdLocalMovies /> */}
             </p>
             <p className="text-gray-300">{data.overview}</p>
             
