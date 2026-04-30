@@ -1,4 +1,4 @@
-export const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+export const API_KEY = 5f050143489ff91d616bca9c0e0f8083;
 
 export const ORIGINAL_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original';
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';

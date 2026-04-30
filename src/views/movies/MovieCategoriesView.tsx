@@ -33,7 +33,7 @@ export const MovieCategoriesView = () => {
                 <Button onClick={() => navigate(-1)}>
                     <div className="flex items-center">
                         <FaArrowLeft className="mr-2"/>Back
-                    </div>  
+                    </div>
                 </Button>
             </main>
         )
