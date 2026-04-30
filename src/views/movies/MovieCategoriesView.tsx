@@ -23,11 +23,26 @@ export const MovieCategoriesView = () => {
     const [page, setPage] = useState(1); // To get the page you're on - default, begins at 1 (for Pagination below)
     const valid = listKey && listKey in LABELS; // Validity check, listKey mustn't be blank + be in LABELS
 
+    if (!valid) { // If the listKey doesn't exist (fake loading screen lol)
+
+    return (
+            <main className="min-h-screen bg-zinc-950 text-white flex flex-col items-center justify-center space-y-4">
+                <h1 className="text-4xl font-bold">Trying to fetch data...</h1>
+                <Button onClick={() => navigate(-1)}>
+                    <div className="flex items-center">
+                        <FaArrowLeft className="mr-2"/>Back
+                    </div>  
+                </Button>
+            </main>
+        )
+    }
+
     const url = movieListUrl(listKey!); // Uses function above (! ensures it's valid)
     const { data } = useTmdb<MoviesResponse>(url, { page }, [url, page]); // Get data from TMDB
 
-    if (!data || !valid) { // If the data doesn't exist (fake loading screen lol)
-        return (
+    if (!data) { // If the data doesn't exist (fake loading screen lol)
+
+    return (
             <main className="min-h-screen bg-zinc-950 text-white flex flex-col items-center justify-center space-y-4">
                 <h1 className="text-4xl font-bold">Trying to fetch data...</h1>
                 <Button onClick={() => navigate(-1)}>
@@ -46,11 +61,13 @@ export const MovieCategoriesView = () => {
     }));
 
     return (
-        <div>
+        <div className="p-10">
             <Outlet />
-                <ImageGrid results={gridData} onClick={(id) => navigate(`/movie/${id}`)} /> {/* ImageGrid already defined for us */}
+            
+            <ImageGrid results={gridData} onClick={(id) => navigate(`/movie/${id}`)} /> {/* ImageGrid already defined for us */}
+            <div className="p-10">
                 <Pagination page={page} maxPages={data.total_pages} onClick={setPage} /> {/* Pagination already defined for us */}
+            </div>
         </div>
     );
-
 }

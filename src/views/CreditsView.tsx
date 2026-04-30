@@ -1,12 +1,19 @@
 import { ImageGrid } from '@/components';
-import { MOVIE_ENDPOINT } from '@/core/constants';
+import { TV_ENDPOINT, MOVIE_ENDPOINT } from '@/core/constants';
 import type { CreditsResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export const CreditsView = () => {
+type Props = { // lets us use it for both movie AND tv
+  kind: "movie" | "tv"; 
+};
+
+
+export const CreditsView = ({ kind }: Props) => {
+
   const { id } = useParams();
   const { data } = useTmdb<CreditsResponse>(`${MOVIE_ENDPOINT}/${id}/credits`, {}, []);
+  const navigate = useNavigate();
 
   const gridData = (data?.cast ?? []).map((result) => ({
     id: result.id,
@@ -16,13 +23,21 @@ export const CreditsView = () => {
   }));
 
   if (!data) {
-    return <p className="text-center text-gray-400">Loading...</p>;
+    return <p className="text-center text-gray-400">Could not load credits.</p>;
   }
 
-  return (
-    <section className="px-2">
-      <h2 className="text-2xl font-bold mb-6">Credits</h2>
-      {data.cast.length ? <ImageGrid results={gridData} /> : <p className="text-gray-400 text-center">No credits available.</p>}
-    </section>
-  );
+  if (kind === "movie") { // fix later
+  
+    return (
+      <section className="px-2">
+        <h2 className="text-2xl font-bold mb-6">Credits</h2>
+        {data.cast.length ? <ImageGrid results={gridData} onClick={(id) => navigate(`/person/${id}`)}/> : <p className="text-gray-400 text-center">No credits available.</p>}
+      </section>
+    );
+
+  } else {
+
+  }
+
+  
 };

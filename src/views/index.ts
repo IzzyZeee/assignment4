@@ -8,3 +8,4 @@ export * from '@/views/movies/MovieCategoriesView';
 export * from '@/views/ReviewsView';
 export * from '@/views/TrendingView';
 export * from '@/views/SearchView';
+export * from '@/views/PersonView';
