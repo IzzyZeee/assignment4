@@ -1,5 +1,5 @@
 import { ButtonGroup, ImageGrid, Pagination } from '@/components';
-import { TRENDING_ENDPOINT } from '@/core/constants';
+import { MOVIE_TRENDING_ENDPOINT, TV_TRENDING_ENDPOINT } from '@/core/constants';
 import type { MoviesResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { useState } from 'react';
@@ -10,7 +10,7 @@ export const TrendingView = () => {
   const [page, setPage] = useState<number>(1);
   const [searchParams, setSearchParams] = useSearchParams();
   const interval = searchParams.get('interval') || 'day';
-  const { data } = useTmdb<MoviesResponse>(`${TRENDING_ENDPOINT}/${interval}`, { page, time_window: interval }, [page, interval]);
+  const { data } = useTmdb<MoviesResponse>(`${MOVIE_TRENDING_ENDPOINT}/${interval}`, { page, time_window: interval }, [page, interval]);
 
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,

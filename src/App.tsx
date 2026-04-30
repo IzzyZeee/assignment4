@@ -1,15 +1,15 @@
 import { MainLayout } from '@/layouts/MainLayout';
 import { 
   // CareerView, 
-  // CreditsView, 
+  CreditsView, 
   // EpisodesView, 
   // GenreView,   
   // ImagesView,
   MovieCategoriesView,
   MoviesView, 
   MovieView, 
-  // PersonView, 
-  // ReviewsView, 
+  PersonView, 
+  ReviewsView, 
   // SeasonsView, 
   // TelevisionView, 
   // TelevisionsView,
@@ -29,17 +29,19 @@ export const App = () => {
       <Route element={<MainLayout />} >
 
         <Route path="/movies" element={<MoviesView />}> 
-          <Route path=":listKey" element={<MovieCategoriesView />} >
-              
-          </Route>
+          <Route path=":listKey" element={<MovieCategoriesView />} />
         </Route>
 
-      <Route path="/movie/:id" element={<MovieView />}>
-        {/* <Route path="credits" element={<CreditsView kind="movie" />}/>
-        <Route path="trailers" element={<TrailersView kind="movie" />}/>
-        <Route path="reviews" element={<ReviewsView kind="movie" />}/> */}
-      </Route>
+        <Route path="/movie/:id" element={<MovieView />}>
+          <Route path="credits" element={<CreditsView kind="movie" />}/>
+          {/* <Route path="trailers" element={<TrailersView kind="movie" />}/> */}
+          <Route path="reviews" element={<ReviewsView kind="movie" />}/>
+        </Route>
       
+        <Route path="/person/:id" element={<PersonView />}>
+
+        </Route>
+
       </Route>
 
       <Route path="*" element={<ErrorView />} />
