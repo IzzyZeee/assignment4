@@ -7,6 +7,15 @@ export type MoviesResponse = {
   total_pages: number;
 };
 
+export type TvsResponse = {
+  results: Array<{
+    id: number;
+    original_name: string;
+    poster_path: string;
+  }>;
+  total_pages: number;
+};
+
 export type MovieResponse = {
   id: number;
   title: string;
@@ -15,19 +24,6 @@ export type MovieResponse = {
   backdrop_path: string;
   release_date: string;
   vote_average: string;
-  genre_ids?: {
-    genre_results: Array<{
-      id: number;
-    }>;
-  };
-  videos?: {
-    results: Array<{
-      key: string;
-      name: string;
-      site: string;
-      type: string;
-    }>;
-  };
 };
 
 export type CreditsResponse = {
@@ -38,6 +34,15 @@ export type CreditsResponse = {
     character: string;
   }>;
 };
+
+export type TrailersResponse = {
+  results: Array<{
+    key: string;
+    name: string;
+    site: string;
+    type: string;
+  }>;
+}
 
 export type ReviewsResponse = {
   results: Array<{

@@ -11,7 +11,7 @@ export const Header = () => {
             </div>
           </div>
         <Link to="/movies/now_playing">Movies</Link>
-        <Link to="/trending?interval=day">TV</Link>
+        <Link to="/tv/airing_today">TV</Link>
         <Link to="/trending?interval=day">Trending</Link>
         <Link to="/search">Genre</Link>
       </nav>

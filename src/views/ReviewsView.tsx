@@ -23,7 +23,7 @@ export const ReviewsView = ({ kind }: Props) => {
 
           {data.results.length ? (
             data.results.slice(0, 5).map((review) => (
-              <div key={review.id} className="bg-gray-800 p-5 rounded-xl shadow">
+              <div key={review.id} className="bg-zinc-800 p-5 rounded-xl shadow">
                 <p className="text-sm text-gray-400 mb-2">By {review.author}</p>
                 <p className="text-gray-300 text-sm leading-relaxed line-clamp-6">{review.content}</p>
               </div>

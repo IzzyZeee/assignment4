@@ -15,9 +15,9 @@ export const MovieView = () => {
     return <p className="text-center text-gray-400">Could not find content.</p>;
   }
 
-  const genreData = data.genre_results.map((genre_results) => ({ // Map will go through every item in the array (each movie)
-    id: genre_results.id
-}));
+//   const genreData = data.genre_results.map((genre_results) => ({ // Map will go through every item in the array (each movie)
+//     id: genre_results.id
+// }));
 
   return (
     <Modal onClose={() => navigate(-1)}>

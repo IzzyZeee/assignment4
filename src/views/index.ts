@@ -7,5 +7,6 @@ export * from '@/views/movies/MovieCategoriesView';
 // export * from '@/views/movies/NowPlayingView';
 export * from '@/views/ReviewsView';
 export * from '@/views/TrendingView';
+export * from '@/views/TelevisionsView';
 export * from '@/views/SearchView';
 export * from '@/views/PersonView';
