@@ -4,9 +4,16 @@ export * from '@/views/CreditsView';
 export * from '@/views/movies/MovieView';
 export * from '@/views/movies/MoviesView';
 export * from '@/views/movies/MovieCategoriesView';
+
+export * from '@/views/television/TelevisionsCategoriesView';
+export * from '@/views/television/TelevisionView';
+export * from '@/views/television/TelevisionsView';
+
 // export * from '@/views/movies/NowPlayingView';
+
 export * from '@/views/ReviewsView';
 export * from '@/views/TrendingView';
-export * from '@/views/TelevisionsView';
 export * from '@/views/SearchView';
 export * from '@/views/PersonView';
+
+

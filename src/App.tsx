@@ -12,6 +12,7 @@ import {
   ReviewsView, 
   // SeasonsView, 
   // TelevisionView, 
+  TelevisionsCategoriesView,
   TelevisionsView,
   // TrailersView, 
   TrendingView, 
@@ -43,7 +44,7 @@ export const App = () => {
         </Route>
 
         <Route path="/tv" element={<TelevisionsView />}> 
-          <Route path=":listKey" element={<MovieCategoriesView />} />
+          <Route path=":listKey" element={<TelevisionsCategoriesView />} />
         </Route>
 
         <Route path="/tv/:id" element={<MovieView />}>
