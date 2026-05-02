@@ -1,17 +1,18 @@
 import { Button, ImageGrid, Pagination } from "@/components";
 import { TV_ENDPOINT } from "@/core/constants";
-import type { SeasonsResponse } from "@/core/types";
+import type { SeasonResponse } from "@/core/types";
 import { useTmdb } from "@/hooks";
 import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
-export const SeasonsView = () => {
+export const SeasonView = () => {
 
     const { id } = useParams();
+    const { number } = useParams();
     const navigate = useNavigate();
 
-    const { data } = useTmdb<SeasonsResponse>(`${TV_ENDPOINT}/${id}`, { page: 1 }, [id]); // Get data from TMDB
+    const { data } = useTmdb<SeasonResponse>(`${TV_ENDPOINT}/${id}/season/${number}`, { page: 1 }, [id]); // Get data from TMDB
 
     if (!data) { // If the data doesn't exist (fake loading screen lol)
         return (
@@ -26,7 +27,7 @@ export const SeasonsView = () => {
         )
     }
 
-    const gridData = data.seasons.map((result) => ({ // Map will go through every item in the array
+    const gridData = data.episodes.map((result) => ({ // Map will go through every item in the array
         id: result.id,
         imagePath: result.poster_path,
         primaryText: result.name ?? 'Untitled',
@@ -36,8 +37,7 @@ export const SeasonsView = () => {
     return (
         <div className="p-10">
             <Outlet />
-                <ImageGrid results={gridData} onClick={(id) => navigate(`/tv/id/${id}/season/${data.season_number}`)} />
+                <ImageGrid results={gridData} />
         </div>
     );
-
 }

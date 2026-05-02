@@ -5,9 +5,11 @@ export * from '@/views/movies/MovieView';
 export * from '@/views/movies/MoviesView';
 export * from '@/views/movies/MovieCategoriesView';
 
-export * from '@/views/television/TelevisionsCategoriesView';
+export * from '@/views/television/TelevisionCategoriesView';
 export * from '@/views/television/TelevisionView';
 export * from '@/views/television/TelevisionsView';
+export * from '@/views/SeasonsView';
+export * from '@/views/SeasonView';
 
 // export * from '@/views/movies/NowPlayingView';
 

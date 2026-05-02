@@ -10,24 +10,25 @@ type Props = { // lets us use it for both movie AND tv
 
 
 export const CreditsView = ({ kind }: Props) => {
-
+  
   const { id } = useParams();
-  const { data } = useTmdb<CreditsResponse>(`${MOVIE_ENDPOINT}/${id}/credits`, {}, []);
   const navigate = useNavigate();
 
-  const gridData = (data?.cast ?? []).map((result) => ({
-    id: result.id,
-    imagePath: result.profile_path,
-    primaryText: result.name,
-    secondaryText: result.character,
-  }));
-
-  if (!data) {
-    return <p className="text-center text-gray-400">Could not load credits.</p>;
-  }
-
-  if (kind === "movie") { // fix later
+  if (kind === "movie") { 
   
+    const { data } = useTmdb<CreditsResponse>(`${MOVIE_ENDPOINT}/${id}/credits`, {}, []);
+
+    const gridData = (data?.cast ?? []).map((result) => ({
+      id: result.id,
+      imagePath: result.profile_path,
+      primaryText: result.name,
+      secondaryText: result.character,
+    }));
+
+    if (!data) {
+      return <p className="text-center text-gray-400">Could not load credits.</p>;
+    }
+
     return (
       <section className="px-2">
         <h2 className="text-2xl font-bold mb-6">Credits</h2>
@@ -35,8 +36,25 @@ export const CreditsView = ({ kind }: Props) => {
       </section>
     );
 
-  } else {
+  } else { // "tv"
 
+    const { data } = useTmdb<CreditsResponse>(`${TV_ENDPOINT}/${id}/credits`, {}, []);
+
+    const gridData = (data?.cast ?? []).map((result) => ({
+      id: result.id,
+      imagePath: result.profile_path,
+      primaryText: result.name,
+      secondaryText: result.character,
+    }));
+
+    if (!data) {
+      return <p className="text-center text-gray-400">Could not load credits.</p>;
+    }
+
+      <section className="px-2">
+        <h2 className="text-2xl font-bold mb-6">Credits</h2>
+        {data.cast.length ? <ImageGrid results={gridData} onClick={(id) => navigate(`/person/${id}`)}/> : <p className="text-gray-400 text-center">No credits available.</p>}
+      </section>
   }
 
   

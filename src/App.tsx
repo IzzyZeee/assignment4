@@ -10,9 +10,10 @@ import {
   MovieView, 
   PersonView, 
   ReviewsView, 
-  // SeasonsView, 
-  // TelevisionView, 
-  TelevisionsCategoriesView,
+  SeasonsView, 
+  SeasonView, 
+  TelevisionView, 
+  TelevisionCategoriesView,
   TelevisionsView,
   // TrailersView, 
   TrendingView, 
@@ -44,10 +45,13 @@ export const App = () => {
         </Route>
 
         <Route path="/tv" element={<TelevisionsView />}> 
-          <Route path=":listKey" element={<TelevisionsCategoriesView />} />
+          <Route path=":listKey" element={<TelevisionCategoriesView />} />
         </Route>
 
-        <Route path="/tv/:id" element={<MovieView />}>
+        <Route path="/tv/id/:id" element={<TelevisionView />}>
+          <Route path="seasons" element={<SeasonsView />}/>
+          <Route path="season/:number" element={<SeasonView />} />
+
           <Route path="credits" element={<CreditsView kind="tv" />}/>
           {/* <Route path="trailers" element={<TrailersView kind="movie" />}/> */}
           <Route path="reviews" element={<ReviewsView kind="tv" />}/>

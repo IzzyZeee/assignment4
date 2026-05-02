@@ -1,9 +1,4 @@
-import { Button, ImageGrid, Pagination } from "@/components";
-import type { MoviesResponse } from "@/core/types";
-import { useTmdb } from "@/hooks";
-import { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
-import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export const MoviesView = () => {
     

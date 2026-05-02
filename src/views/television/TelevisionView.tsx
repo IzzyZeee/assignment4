@@ -1,15 +1,14 @@
 import { LinkGroup, Modal } from '@/components';
-import { IMAGE_BASE_URL, MOVIE_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from '@/core/constants';
-import type { MovieResponse } from '@/core/types';
+import { IMAGE_BASE_URL, TV_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from '@/core/constants';
+import type { TvResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { FaCalendarAlt } from 'react-icons/fa';
-import { MdLocalMovies } from "react-icons/md";
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
-export const Television = () => {
+export const TelevisionView = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { data } = useTmdb<MovieResponse>(`${MOVIE_ENDPOINT}/${id}`, { append_to_response: 'videos' }, [id]);
+  const { data } = useTmdb<TvResponse>(`${TV_ENDPOINT}/${id}`, { append_to_response: 'videos' }, [id]);
 
   if (!data) {
     return <p className="text-center text-gray-400">Could not find content.</p>;
@@ -25,13 +24,15 @@ export const Television = () => {
           }}
         />
         <div className="flex gap-8">
-          <img className="w-[220px] h-[330px] object-cover rounded-xl" src={`${IMAGE_BASE_URL}${data.poster_path}`} alt={data.title} />
+          <img className="w-[220px] h-[330px] object-cover rounded-xl" src={`${IMAGE_BASE_URL}${data.poster_path}`} alt={data.name} />
           <div className="flex-1 space-y-4">
-            <h1 className="text-3xl font-bold">{data.title}</h1>
+            <h1 className="text-3xl font-bold">{data.name}</h1>
             <p className="text-gray-400 flex items-center gap-2">
               <FaCalendarAlt />
-              {data.release_date}
-              {/* <MdLocalMovies /> */}
+              {data.first_air_date}
+            </p>
+            <p className="text-gray-400 flex items-center gap-2">
+              {data.number_of_seasons} Seasons - {data.number_of_episodes} Episodes
             </p>
             <p className="text-gray-300">{data.overview}</p>
             

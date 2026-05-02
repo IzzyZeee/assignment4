@@ -1,4 +1,3 @@
-
 import { Button, ImageGrid, Pagination } from "@/components";
 import type { TvsResponse } from "@/core/types";
 import { useTmdb } from "@/hooks";
@@ -6,25 +5,25 @@ import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
-const LABELS: Record<string, string> = { // TMDB's 4 movie categories
+const LABELS: Record<string, string> = { // TMDB's 4 tv categories
     airing_today: 'Airing Today', // key (from url) : text displayed in button
     on_the_air: 'On The Air',
     popular: 'Popular',
     top_rated: 'Top Rated'
 }
 
-function movieListUrl(listKey: string) { // Uses listKey to get working URL to get valid link from TMDB
+function tvListUrl(listKey: string) { // Uses listKey to get working URL to get valid link from TMDB
     return `https://api.themoviedb.org/3/tv/${listKey}`;
 }
 
-export const TelevisionsCategoriesView = () => {
+export const TelevisionCategoriesView = () => {
 
     const { listKey } = useParams(); // To get whatever listKey is from router
     const navigate = useNavigate();
     const [page, setPage] = useState(1); // To get the page you're on - default, begins at 1 (for Pagination below)
     const valid = listKey && listKey in LABELS; // Validity check, listKey mustn't be blank + be in LABELS
 
-    const url = movieListUrl(listKey!); // Uses function above (! ensures it's valid)
+    const url = tvListUrl(listKey!); // Uses function above (! ensures it's valid)
     const { data } = useTmdb<TvsResponse>(url, { page }, [url, page]); // Get data from TMDB
 
     if (!data || !valid) { // If the data doesn't exist (fake loading screen lol)
@@ -40,17 +39,19 @@ export const TelevisionsCategoriesView = () => {
         )
     }
 
-    const gridData = data.results.map((result) => ({ // Map will go through every item in the array (each movie)
+    const gridData = data.results.map((result) => ({ // Map will go through every item in the array
         id: result.id,
         imagePath: result.poster_path,
-        primaryText: result.original_name ?? 'Untitled',
+        primaryText: result.name ?? 'Untitled',
     }));
 
     return (
-        <div>
+        <div className="p-10">
             <Outlet />
-                <ImageGrid results={gridData} onClick={(id) => navigate(`/tv/${id}`)} /> {/* ImageGrid already defined for us */}
-                <Pagination page={page} maxPages={data.total_pages} onClick={setPage} /> {/* Pagination already defined for us */}
+                <ImageGrid results={gridData} onClick={(id) => navigate(`/tv/id/${id}`)} /> {/* ImageGrid already defined for us */}
+                <div className="p-10">
+                    <Pagination page={page} maxPages={data.total_pages} onClick={setPage} /> {/* Pagination already defined for us */}
+                </div>
         </div>
     );
 

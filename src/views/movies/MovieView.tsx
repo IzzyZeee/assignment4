@@ -3,7 +3,6 @@ import { IMAGE_BASE_URL, MOVIE_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from '@/core/
 import type { MovieResponse } from '@/core/types';
 import { useTmdb } from '@/hooks';
 import { FaCalendarAlt } from 'react-icons/fa';
-import { MdLocalMovies } from "react-icons/md";
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
 export const MovieView = () => {
