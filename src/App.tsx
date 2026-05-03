@@ -2,7 +2,7 @@ import { MainLayout } from '@/layouts/MainLayout';
 import { 
   // CareerView, 
   CreditsView, 
-  // GenresView,   
+  GenresView,   
   ImagesView,
   MovieCategoriesView,
   MoviesView, 
@@ -60,7 +60,7 @@ export const App = () => {
 
         <Route path="/trending" element={<TrendingView />} />
 
-        {/* <Route path="/genres" element={<GenresView />} /> */}
+        <Route path="/genres/:type/:genre_id" element={<GenresView />} />
 
       </Route>
 
