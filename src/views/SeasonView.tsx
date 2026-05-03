@@ -1,8 +1,7 @@
-import { Button, ImageGrid, Pagination } from "@/components";
+import { Button, OtherImageGrid, Pagination } from "@/components";
 import { TV_ENDPOINT } from "@/core/constants";
 import type { SeasonResponse } from "@/core/types";
 import { useTmdb } from "@/hooks";
-import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
@@ -29,7 +28,7 @@ export const SeasonView = () => {
 
     const gridData = data.episodes.map((result) => ({ // Map will go through every item in the array
         id: result.id,
-        imagePath: result.poster_path,
+        imagePath: result.still_path,
         primaryText: result.name ?? 'Untitled',
         secondaryText: result.air_date ?? 'No date available',
     }));
@@ -37,7 +36,7 @@ export const SeasonView = () => {
     return (
         <div className="p-10">
             <Outlet />
-                <ImageGrid results={gridData} />
+                <OtherImageGrid results={gridData} />
         </div>
     );
 }

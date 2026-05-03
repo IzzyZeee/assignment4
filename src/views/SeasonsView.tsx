@@ -28,6 +28,7 @@ export const SeasonsView = () => {
 
     const gridData = data.seasons.map((result) => ({ // Map will go through every item in the array
         id: result.id,
+        seasonNumber: result.season_number,
         imagePath: result.poster_path,
         primaryText: result.name ?? 'Untitled',
         secondaryText: result.air_date ?? 'No date available',
@@ -36,7 +37,13 @@ export const SeasonsView = () => {
     return (
         <div className="p-10">
             <Outlet />
-                <ImageGrid results={gridData} onClick={(id) => navigate(`/tv/id/${id}/season/${data.season_number}`)} />
+                <ImageGrid results={gridData} 
+                    // onClick={(id) => navigate(`/tv/id/${id}/season/${data.season_number}`)} 
+                    onClick={(seasonId) => {
+                        const season = gridData.find(s => s.id === seasonId);
+                        navigate(`/tv/id/${id}/season/${season?.seasonNumber}`);
+                    }} 
+                />
         </div>
     );
 

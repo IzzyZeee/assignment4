@@ -57,6 +57,12 @@ export const App = () => {
           <Route path="reviews" element={<ReviewsView kind="tv" />}/>
         </Route>
 
+        <Route path="/trending" element={<TrendingView />}>
+          <Route>
+
+          </Route>
+        </Route>
+
       </Route>
 
       <Route path="*" element={<ErrorView />} />

@@ -73,12 +73,12 @@ export type CreditsResponse = {
 };
 
 export type SeasonsResponse = {
-  season_number: number;
   seasons: Array<{
     id: number;
     name: string;
     poster_path: string | null;
     air_date: string;
+    season_number: number;
   }>;
 };
 
@@ -91,7 +91,7 @@ export type SeasonResponse = {
     id: number;
     name: string;
     air_date: string;
-    poster_path: string;
+    still_path: string;
   }>;
 };
 

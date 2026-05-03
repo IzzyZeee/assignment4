@@ -12,7 +12,7 @@ export const Header = () => {
           </div>
         <Link to="/movies/now_playing">Movies</Link>
         <Link to="/tv/airing_today">TV</Link>
-        <Link to="/trending?interval=day">Trending</Link>
+        <Link to="/trending">Trending</Link>
         <Link to="/search">Genre</Link>
       </nav>
     </header>

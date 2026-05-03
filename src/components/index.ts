@@ -2,6 +2,7 @@ export * from '@/components/Button';
 export * from '@/components/ButtonGroup';
 export * from '@/components/Header';
 export * from '@/components/ImageGrid';
+export * from '@/components/OtherImageGrid';
 export * from '@/components/Link';
 export * from '@/components/LinkGroup';
 export * from '@/components/Modal';

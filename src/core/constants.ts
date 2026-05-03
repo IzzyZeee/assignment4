@@ -4,8 +4,6 @@ export const ORIGINAL_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original';
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 export const MOVIE_ENDPOINT = 'https://api.themoviedb.org/3/movie';
-export const NOW_PLAYING_ENDPOINT = 'https://api.themoviedb.org/3/movie/now_playing';
-export const TRENDING_ENDPOINT = 'https://api.themoviedb.org/3/trending/movie';
 export const MOVIE_NOW_PLAYING_ENDPOINT = 'https://api.themoviedb.org/3/movie/now_playing';
 export const MOVIE_TRENDING_ENDPOINT = 'https://api.themoviedb.org/3/trending/movie';
 
