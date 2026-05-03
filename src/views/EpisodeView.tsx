@@ -5,7 +5,7 @@ import { useTmdb } from "@/hooks";
 import { FaArrowLeft } from "react-icons/fa";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
-export const SeasonView = () => {
+export const EpisodeView = () => {
 
     const { id } = useParams();
     const { number } = useParams();

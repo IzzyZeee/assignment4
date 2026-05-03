@@ -2,7 +2,6 @@ import { Button, ImageGrid, Pagination } from "@/components";
 import { TV_ENDPOINT } from "@/core/constants";
 import type { SeasonsResponse } from "@/core/types";
 import { useTmdb } from "@/hooks";
-import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 

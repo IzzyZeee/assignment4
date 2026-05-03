@@ -13,7 +13,7 @@ export const Header = () => {
         <Link to="/movies/now_playing">Movies</Link>
         <Link to="/tv/airing_today">TV</Link>
         <Link to="/trending">Trending</Link>
-        <Link to="/search">Genre</Link>
+        <Link to="/genres">Genre</Link>
       </nav>
     </header>
   );

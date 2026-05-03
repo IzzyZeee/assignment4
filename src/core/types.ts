@@ -95,6 +95,14 @@ export type SeasonResponse = {
   }>;
 };
 
+export type GenresResponse = {
+  genres: Array<{
+    id: number;
+    name: string;
+  }>;
+};
+
+
 export type ReviewsResponse = {
   results: Array<{
     id: string;
@@ -118,11 +126,22 @@ export type PersonResponse = {
   name: string;
   known_for_department: string;
   profile_path: string;
-
+  place_of_birth: string;
+  birthday: string;
+  overview: string;
+  biography: string;
   results: Array<{
     id: number;
     name: string;
     profile_path: string | null;
   }>;
   
+};
+
+export type ImagesResponse = {
+  profiles: Array<{
+    file_path: string;
+    width: number;
+    height: number;
+  }>;
 };

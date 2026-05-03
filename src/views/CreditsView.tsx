@@ -8,7 +8,6 @@ type Props = { // lets us use it for both movie AND tv
   kind: "movie" | "tv"; 
 };
 
-
 export const CreditsView = ({ kind }: Props) => {
   
   const { id } = useParams();

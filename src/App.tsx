@@ -1,17 +1,16 @@
 import { MainLayout } from '@/layouts/MainLayout';
 import { 
-  // CareerView, 
+  CareerView, 
   CreditsView, 
-  // EpisodesView, 
-  // GenreView,   
-  // ImagesView,
+  // GenresView,   
+  ImagesView,
   MovieCategoriesView,
   MoviesView, 
   MovieView, 
   PersonView, 
   ReviewsView, 
   SeasonsView, 
-  SeasonView, 
+  EpisodeView, 
   TelevisionView, 
   TelevisionCategoriesView,
   TelevisionsView,
@@ -41,7 +40,8 @@ export const App = () => {
         </Route>
       
         <Route path="/person/:id" element={<PersonView />}>
-
+          <Route path="/images" element={<ImagesView />} />
+          <Route path="/career" element={<CareerView />} />
         </Route>
 
         <Route path="/tv" element={<TelevisionsView />}> 
@@ -50,18 +50,16 @@ export const App = () => {
 
         <Route path="/tv/id/:id" element={<TelevisionView />}>
           <Route path="seasons" element={<SeasonsView />}/>
-          <Route path="season/:number" element={<SeasonView />} />
+          <Route path="season/:number" element={<EpisodeView />} />
 
           <Route path="credits" element={<CreditsView kind="tv" />}/>
           {/* <Route path="trailers" element={<TrailersView kind="movie" />}/> */}
           <Route path="reviews" element={<ReviewsView kind="tv" />}/>
         </Route>
 
-        <Route path="/trending" element={<TrendingView />}>
-          <Route>
+        <Route path="/trending" element={<TrendingView />} />
 
-          </Route>
-        </Route>
+        {/* <Route path="/genres" element={<GenresView />} /> */}
 
       </Route>
 
