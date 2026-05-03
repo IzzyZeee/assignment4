@@ -60,7 +60,5 @@ export const ReviewsView = ({ kind }: Props) => {
         )}
       </section>
     );
-
   }
-  
 };

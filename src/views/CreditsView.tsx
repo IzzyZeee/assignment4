@@ -55,6 +55,4 @@ export const CreditsView = ({ kind }: Props) => {
         {data.cast.length ? <ImageGrid results={gridData} onClick={(id) => navigate(`/person/${id}`)}/> : <p className="text-gray-400 text-center">No credits available.</p>}
       </section>
   }
-
-  
 };

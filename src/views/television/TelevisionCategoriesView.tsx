@@ -54,5 +54,4 @@ export const TelevisionCategoriesView = () => {
                 </div>
         </div>
     );
-
 }

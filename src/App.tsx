@@ -1,6 +1,6 @@
 import { MainLayout } from '@/layouts/MainLayout';
 import { 
-  CareerView, 
+  // CareerView, 
   CreditsView, 
   // GenresView,   
   ImagesView,
@@ -18,7 +18,8 @@ import {
   TrendingView, 
   ErrorView, 
   HomeView, 
-  SearchView 
+  SearchView, 
+  CareerView
 } from '@/views';
 import { Route, Routes } from 'react-router-dom';
 
@@ -40,8 +41,8 @@ export const App = () => {
         </Route>
       
         <Route path="/person/:id" element={<PersonView />}>
-          <Route path="/images" element={<ImagesView />} />
-          <Route path="/career" element={<CareerView />} />
+          <Route path="images" element={<ImagesView />} />
+          <Route path="career" element={<CareerView />} />
         </Route>
 
         <Route path="/tv" element={<TelevisionsView />}> 

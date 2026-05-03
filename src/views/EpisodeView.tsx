@@ -1,4 +1,4 @@
-import { Button, OtherImageGrid, Pagination } from "@/components";
+import { Button, OtherImageGrid } from "@/components";
 import { TV_ENDPOINT } from "@/core/constants";
 import type { SeasonResponse } from "@/core/types";
 import { useTmdb } from "@/hooks";

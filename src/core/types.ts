@@ -67,7 +67,7 @@ export type CreditsResponse = {
   cast: Array<{
     id: number;
     name: string;
-    profile_path: string | null;
+    poster_path: string | null;
     character: string;
   }>;
 };
@@ -140,8 +140,9 @@ export type PersonResponse = {
 
 export type ImagesResponse = {
   profiles: Array<{
-    file_path: string;
-    width: number;
-    height: number;
+    id: number;
+    name: string;
+    file_path: string | null;
+    character: string;
   }>;
 };

@@ -1,9 +1,8 @@
 import { Button, LinkGroup } from "@/components";
-import { IMAGE_BASE_URL, MOVIE_ENDPOINT, ORIGINAL_IMAGE_BASE_URL } from "@/core/constants";
-import type { CreditsResponse, PersonResponse } from "@/core/types";
+import { IMAGE_BASE_URL } from "@/core/constants";
+import type { PersonResponse } from "@/core/types";
 import { useTmdb } from "@/hooks";
 import { FaGlobeAmericas } from "react-icons/fa";
-import { FaCalendarAlt } from "react-icons/fa";
 import { FaBirthdayCake } from "react-icons/fa";
 import { useParams, useNavigate, Outlet } from "react-router-dom";
 
@@ -45,7 +44,7 @@ export const PersonView = () => {
           <LinkGroup
             options={[
               { label: 'Images', to: 'images' },
-              { label: 'Roles', to: 'career' },
+              { label: 'Career', to: 'career' },
             ]}
           />
         </div>

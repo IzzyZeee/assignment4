@@ -1,4 +1,4 @@
-import { Button, ImageGrid, Pagination } from "@/components";
+import { Button, ImageGrid } from "@/components";
 import { TV_ENDPOINT } from "@/core/constants";
 import type { SeasonsResponse } from "@/core/types";
 import { useTmdb } from "@/hooks";
@@ -45,5 +45,4 @@ export const SeasonsView = () => {
                 />
         </div>
     );
-
 }
