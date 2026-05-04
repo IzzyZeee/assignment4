@@ -10,14 +10,10 @@ export const GenresView = () => {
     const { type, genre_id } = useParams();
     const genreList = type === 'movie' ? MOVIE_GENRES : TV_GENRES;
     const navigate = useNavigate();
-    const [genreId, setGenreId] = useState<number | null>(null);
+    // const [genreId, setGenreId] = useState<number | null>(null);
     const [page, setPage] = useState<number>(1);
     const [searchParams, setSearchParams] = useSearchParams();
     const interval = searchParams.get('interval') || 'day';
-
-
-    // const endpoint = ${kind === 'movie' ? MOVIE_TRENDING_ENDPOINT : TV_TRENDING_ENDPOINT}}
-    // const [kind, setKind] = useState<'movie' | 'tv'>('movie'); // determine if it's movie or tv
 
     const { data } = useTmdb<MoviesResponse | TvsResponse>(
         `${type === 'movie' ? MOVIE_DISCOVER_ENDPOINT : TV_DISCOVER_ENDPOINT}`,
@@ -47,7 +43,6 @@ export const GenresView = () => {
             { label: 'TV', value: 'tv' },
           ]}
           onClick={(value) => {
-            // setKind(value as 'movie' | 'tv');
             setPage(1); // resets page when switching
             navigate(type === 'tv' ? `/genres/${value}/28` : `/genres/${value}/10759`);
           }}
@@ -57,12 +52,10 @@ export const GenresView = () => {
     <div className="flex"> 
 
         {genreList.map((g) => (
-            <Link className="px-6 py-3 rounded-md transition-all duration-200 bg-zinc-800 text-white-900 m-1 hover:bg-zinc-900" 
+          <Link className="px-6 py-3 rounded-md transition-all duration-200 bg-zinc-800 text-white-900 m-1 hover:bg-zinc-900" 
             key={g.id} to={`/genres/${type}/${g.id}`}>
             {g.label}
-            </Link>
-
-
+          </Link>
         ))}
     </div >
 
