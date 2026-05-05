@@ -14,6 +14,7 @@ export * from '@/views/HomeView';
 export * from '@/views/CreditsView';
 export * from '@/views/ReviewsView';
 export * from '@/views/TrendingView';
+export * from '@/views/TrailersView';
 export * from '@/views/GenresView';
 export * from '@/views/ImagesView';
 export * from '@/views/CareerView';

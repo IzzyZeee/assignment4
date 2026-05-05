@@ -63,6 +63,17 @@ export type TvResponse = {
   };
 };
 
+// export type TrailerVideos = {
+//   videos?: {
+//     results: Array<{
+//       key: string;
+//       name: string;
+//       site: string;
+//       type: string;
+//     }>;
+//   };
+// }
+
 export type CreditsResponse = {
   cast: Array<{
     id: number;

@@ -26,7 +26,7 @@ export const MOVIE_GENRES: Array<{ label: string; id: number }> = [
     { label: 'History', id: 36 },
     { label: 'Horror', id: 27 },
     { label: 'Mystery', id: 9648 },
-    { label: 'Sci-Fi', id: 878 },
+    { label: 'Scifi', id: 878 },
 ];
 
 export const TV_GENRES: Array<{ label: string; id: number }> = [
@@ -39,6 +39,6 @@ export const TV_GENRES: Array<{ label: string; id: number }> = [
     { label: 'Family', id: 10751 },
     { label: 'Kids', id: 10762 },
     { label: 'Mystery', id: 9648 },
-    { label: 'Sci-Fi', id: 10765 },
+    { label: 'Scifi', id: 10765 },
 ];
 
