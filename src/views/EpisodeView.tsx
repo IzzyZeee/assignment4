@@ -36,7 +36,7 @@ export const EpisodeView = () => {
     return (
         <div className="p-10">
             <Outlet />
-                <OtherImageGrid results={gridData} />
+            <OtherImageGrid results={gridData} />
         </div>
     );
 }

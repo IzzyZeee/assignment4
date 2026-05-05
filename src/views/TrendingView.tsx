@@ -12,11 +12,6 @@ export const TrendingView = () => {
   const interval = searchParams.get('interval') || 'day';
 
   const [kind, setKind] = useState<'movie' | 'tv'>('movie'); // determine if it's movie or tv
-  // const endpoint = kind === 'movie' ? MOVIE_TRENDING_ENDPOINT : TV_TRENDING_ENDPOINT;
-  // const { data } = 
-  //   kind === 'movie' ? 
-  //     useTmdb<MoviesResponse | TvsResponse>(`${endpoint}/${interval}`, { page, time_window: interval }, [page, interval, kind])
-  //     : useTmdb<TvsResponse>(`${TV_TRENDING_ENDPOINT}/${interval}`, { page, time_window: interval }, [page, interval, kind]);
   const { data } = useTmdb<MoviesResponse | TvsResponse>(
     `${kind === 'movie' ? MOVIE_TRENDING_ENDPOINT : TV_TRENDING_ENDPOINT}/${interval}`,
     { page },

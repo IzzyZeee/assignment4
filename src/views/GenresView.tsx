@@ -10,7 +10,6 @@ export const GenresView = () => {
     const { type, genre_id } = useParams();
     const genreList = type === 'movie' ? MOVIE_GENRES : TV_GENRES;
     const navigate = useNavigate();
-    // const [genreId, setGenreId] = useState<number | null>(null);
     const [page, setPage] = useState<number>(1);
     const [searchParams, setSearchParams] = useSearchParams();
     const interval = searchParams.get('interval') || 'day';
@@ -56,7 +55,7 @@ export const GenresView = () => {
             {g.label}
           </Link>
         ))}
-    </div >
+    </div>
 
       <ImageGrid results={gridData} onClick={(id) => navigate(type === 'movie'? `/movie/${id}/credits` : `/tv/id/${id}/seasons`)} />
       <Pagination page={page} maxPages={data.total_pages} onClick={setPage} />
