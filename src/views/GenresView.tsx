@@ -18,7 +18,7 @@ export const GenresView = () => {
     const { data } = useTmdb<MoviesResponse | TvsResponse>(
         `${type === 'movie' ? MOVIE_DISCOVER_ENDPOINT : TV_DISCOVER_ENDPOINT}`,
         { page, with_genres : Number(genre_id) },
-        [page, interval, type]
+        [page, interval, type, genre_id]
     );
     console.log("hi", {MOVIE_DISCOVER_ENDPOINT});
 
@@ -50,7 +50,6 @@ export const GenresView = () => {
       </div>
 
     <div className="flex"> 
-
         {genreList.map((g) => (
           <Link className="px-6 py-3 rounded-md transition-all duration-200 bg-zinc-800 text-white-900 m-1 hover:bg-zinc-900" 
             key={g.id} to={`/genres/${type}/${g.id}`}>
