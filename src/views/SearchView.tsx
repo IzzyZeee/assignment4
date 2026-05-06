@@ -69,8 +69,9 @@ export const SearchView = () => {
 
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
-    imagePath: result.profile_path,
+    imagePath: (result.media_type === 'person' ? result.profile_path ?? null : result.poster_path ?? null),
     primaryText: result.name,
+    secondaryText: result.media_type,
   }));
 
   if (!data) {
