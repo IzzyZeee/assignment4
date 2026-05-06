@@ -60,6 +60,8 @@ export const App = () => {
         <Route path="/trending" element={<TrendingView />} />
 
         <Route path="/genres/:type/:genre_id" element={<GenresView />} />
+        
+        <Route path="/search" element={<SearchView />} />
 
       </Route>
 

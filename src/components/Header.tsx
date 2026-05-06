@@ -1,9 +1,32 @@
 import { Link, SearchBar } from '@/components';
 import { useState } from 'react';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 
 
 export const Header = () => {
-  const [search, useSearch] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [draft, setDraft] = useState(''); // what is left in the search bar
+
+  const onSearchPage = location.pathname === '/search'; // is the current link on search page? 
+  const search = onSearchPage ? (searchParams.get('q') ?? '') : draft;
+
+  const useSearch = (value: string) => {
+    if (onSearchPage) {
+      setSearchParams(value.trim() ? { q: value } : {});
+    } else {
+      setDraft(value);
+    }
+  }
+
+  const doSearch = () => {
+    const source = (onSearchPage ? search : draft).trim(); // btw trim is a function that removes extra spaces at start/end
+    navigate(source ? { pathname: '/search', search: `?q=${encodeURIComponent(source)}` } : { pathname: '/search' });
+    if (!onSearchPage) {
+      setDraft('');
+    }
+  }
 
   return (
     <header>
@@ -21,7 +44,7 @@ export const Header = () => {
           <Link to="/genres/movie/28">Genre</Link>
           <Link to="/genres/search">Search</Link>
           <div className="ml-auto">
-            <SearchBar value={search} onChange={useSearch} ></SearchBar>
+            <SearchBar value={search} onChange={useSearch} onSubmitSearch={doSearch} ></SearchBar>
           </div>
       </nav>
     </header>

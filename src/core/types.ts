@@ -63,17 +63,6 @@ export type TvResponse = {
   };
 };
 
-// export type TrailerVideos = {
-//   videos?: {
-//     results: Array<{
-//       key: string;
-//       name: string;
-//       site: string;
-//       type: string;
-//     }>;
-//   };
-// }
-
 export type CreditsResponse = {
   cast: Array<{
     id: number;
@@ -122,11 +111,13 @@ export type ReviewsResponse = {
   }>;
 };
 
-export type SearchResponse = {
+export type MultiSearchResponse = {
   results: Array<{
     id: number;
     name: string;
+    media_type: string;
     profile_path: string | null;
+    poster_path: string | null;
   }>;
   total_pages: number;
   total_results: number;

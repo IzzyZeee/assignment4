@@ -13,7 +13,7 @@ export const TV_NOW_PLAYING_ENDPOINT = 'https://api.themoviedb.org/3/tv/now_play
 export const TV_TRENDING_ENDPOINT = 'https://api.themoviedb.org/3/trending/tv';
 export const TV_DISCOVER_ENDPOINT = 'https://api.themoviedb.org/3/discover/tv';
 
-export const SEARCH_ENDPOINT = 'https://api.themoviedb.org/3/search/person';
+export const MULTISEARCH_ENDPOINT = 'https://api.themoviedb.org/3/search/multi';
 export const GITHUB_LINK = 'https://github.com/IzzyZeee/assignment4.git';
 
 export const MOVIE_GENRES: Array<{ label: string; id: number }> = [
