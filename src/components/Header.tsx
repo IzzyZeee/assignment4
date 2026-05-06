@@ -42,7 +42,7 @@ export const Header = () => {
           <Link to="/tv/airing_today">TV</Link>
           <Link to="/trending">Trending</Link>
           <Link to="/genres/movie/28">Genre</Link>
-          <Link to="/genres/search">Search</Link>
+          <Link to="/search">Search</Link>
           <div className="ml-auto">
             <SearchBar value={search} onChange={useSearch} onSubmitSearch={doSearch} ></SearchBar>
           </div>
