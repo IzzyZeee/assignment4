@@ -3,7 +3,7 @@ import { MULTISEARCH_ENDPOINT } from '@/core/constants';
 import type { MultiSearchResponse } from '@/core/types';
 import { useDebounce, useTmdb } from '@/hooks';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 function SearchResults({ query, page, onPageChange }: { query: string; page: number; onPageChange: (p: number) => void }) {
   const navigate = useNavigate();
@@ -49,14 +49,23 @@ function SearchResults({ query, page, onPageChange }: { query: string; page: num
 }
 
 export const SearchView = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const queryFromUrl = searchParams.get('q') ?? '';
   const [query, setQuery] = useState('');
   const [page, setPage] = useState<number>(1);
-  const debouncedQuery = useDebounce(query, 500);
-  const { data } = useTmdb<MultiSearchResponse>(MULTISEARCH_ENDPOINT, { query: debouncedQuery, page }, [debouncedQuery, page]);
 
+  useEffect(() => {
+    setQuery(queryFromUrl);
+  }, [queryFromUrl]);
+
+  const debouncedQuery = useDebounce(query, 500);
+  
   useEffect(() => {
     setPage(1);
   }, [debouncedQuery]);
+
+  const { data } = useTmdb<MultiSearchResponse>(MULTISEARCH_ENDPOINT, { query: debouncedQuery, page }, [debouncedQuery, page]);
 
   const gridData = (data?.results ?? []).map((result) => ({
     id: result.id,
