@@ -56,7 +56,3 @@ export const TrendingView = () => {
     </section>
   );
 };
-
-
-
-

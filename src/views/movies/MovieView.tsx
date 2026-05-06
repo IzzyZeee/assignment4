@@ -14,10 +14,6 @@ export const MovieView = () => {
     return <p className="text-center text-gray-400">Could not find content.</p>;
   }
 
-//   const genreData = data.genre_results.map((genre_results) => ({ // Map will go through every item in the array (each movie)
-//     id: genre_results.id
-// }));
-
   return (
     <Modal onClose={() => navigate(-1)}>
       <div className="p-6 space-y-6">
@@ -34,7 +30,6 @@ export const MovieView = () => {
             <p className="text-gray-400 flex items-center gap-2">
               <FaCalendarAlt />
               {data.release_date}
-              {/* <MdLocalMovies /> */}
             </p>
             <p className="text-gray-300">{data.overview}</p>
             

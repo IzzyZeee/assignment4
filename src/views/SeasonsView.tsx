@@ -37,7 +37,6 @@ export const SeasonsView = () => {
         <div className="p-10">
             <Outlet />
                 <ImageGrid results={gridData} 
-                    // onClick={(id) => navigate(`/tv/id/${id}/season/${data.season_number}`)} 
                     onClick={(seasonId) => {
                         const season = gridData.find(s => s.id === seasonId);
                         navigate(`/tv/id/${id}/season/${season?.seasonNumber}`);
